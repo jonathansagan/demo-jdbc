@@ -2,8 +2,8 @@ package fr.diginamic.jdbc.entites;
 
 public class Fournisseur {
 	
-	private int id;
-	private String nom;
+	int id;
+	String nom;
 
 	/** Constructeur du fournisseur
 	 *

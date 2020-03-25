@@ -13,7 +13,7 @@ import fr.diginamic.jdbc.entites.Fournisseur;
 public class TestSelect {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		// étape 0 - lecture fichier "db.properties"
+				// étape 0 - lecture fichier "db.properties"
 				ResourceBundle db = ResourceBundle.getBundle("db");
 
 				// étape 1 : enregistrer le pilote
@@ -31,15 +31,15 @@ public class TestSelect {
 		ResultSet resultSet = statement.executeQuery("select * from fournisseur");
 
 		// fournisseurs dans une ArrayList
-		ArrayList<Fournisseur> fournisseurs = new ArrayList<>();
+		ArrayList<Fournisseur> Listefournisseurs = new ArrayList<>();
 
 		while (resultSet.next()) {
 			Fournisseur fournisseur = new Fournisseur(resultSet.getInt("id"), resultSet.getString("nom"));
-			fournisseurs.add(fournisseur);
+			Listefournisseurs.add(fournisseur);
 		}
 
 		// affichage des fournisseurs
-		for (Fournisseur fournisseur : fournisseurs) {
+		for (Fournisseur fournisseur : Listefournisseurs) {
 			System.out.println(fournisseur);
 		}
 		
