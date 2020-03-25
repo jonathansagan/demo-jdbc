@@ -1,10 +1,12 @@
+package fr.diginamic.jdbc;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class TestConnexionJdbc {
+public class TestDelete {
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		// étape 0 - lecture fichier "db.properties"
@@ -18,18 +20,11 @@ public class TestConnexionJdbc {
 				db.getString("db.pass"));
 
 		// étape 3 : requêtes
-
 		Statement statement = connection.createStatement();
 
-		// vérification via un syso
-		boolean verif = connection.isValid(800);
-		if (verif == true) {
-			System.out.println("ça marche");
-		} else {
-			System.out.println("ça plante");
-		}
-
+		// requêtes delete
+		int nb = statement.executeUpdate("delete from fournisseur WHERE id=4 and nom = 'La Maison des Peintures'");
+		statement.close();
 		connection.close();
 	}
-
 }
